@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+		<hibernate-mapping>
+		<class name="com.onetoonexml.pojo.ParentPojo" table="parents" catalog="Jpa_hiberbate_TEST">
+		
+		<id name="pid" type="java.lang.Integer">
+		<column name="p_id"/>
+		<generator class="foreign">
+		<param name="property">student</param>
+		</generator>
+		</id>
+		
+		<property name="fname" type="string">
+			<column name="father" length="100" not-null="true" />
+		</property>
+		
+		<property name="mname" type="string">
+			<column name="mother" length="100" not-null="true" />
+		</property>
+		
+		<one-to-one name="student" class="com.onetoonexml.pojo.StudentPojo" constrained="true"></one-to-one>
+		</class>
+		
+		</hibernate-mapping>

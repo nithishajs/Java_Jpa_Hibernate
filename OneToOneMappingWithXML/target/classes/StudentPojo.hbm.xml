@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+		<hibernate-mapping>
+		<class name="com.onetoonexml.pojo.StudentPojo" table="students" catalog="Jpa_hiberbate_TEST">
+		
+		<id name="sid" type="int">
+		<column name="s_id"/>
+		<generator class="identity">
+		</generator>
+		</id>
+		
+		<property name="sname" type="string">
+			<column name="name" length="100" not-null="true" />
+		</property>
+		
+		<property name="sclass" type="string">
+			<column name="class" length="100" not-null="true" />
+		</property>
+		
+		<one-to-one name="parent" class="com.onetoonexml.pojo.ParentPojo" cascade="save-update">
+				
+		</one-to-one>
+		</class>
+		
+		</hibernate-mapping>

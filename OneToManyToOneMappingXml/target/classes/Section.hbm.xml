@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.onetomanyxml.pojo.SectionPojo" table="section" catalog="Jpa_hiberbate_TEST">
+
+<id name="secId" type="int">
+<column name="sec_id" />
+<generator class="increment"/>
+</id>
+
+<property name="secName" type="string">
+<column name="name" not-null="true" >
+</column>
+</property>
+
+<set name="student" table="student" inverse="true" cascade="save-update" >
+<key>
+<column name="sec_id" not-null="true" />
+</key>
+<one-to-many class="com.onetomanyxml.pojo.StudentPojo" />
+</set>
+
+</class>
+
+</hibernate-mapping>

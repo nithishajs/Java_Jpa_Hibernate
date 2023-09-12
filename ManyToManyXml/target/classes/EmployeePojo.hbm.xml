@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.manytomanyxml.pojo.EmployeePojo" table="employe" catalog="Jpa_hiberbate_TEST">
+
+<id name="eid" type="int">
+<column name="e_id" />
+<generator class="identity">
+
+</generator>
+</id>
+
+<property name="ename" type="string">
+<column name="name" not-null="true" >
+</column>
+</property>
+
+<property name="edep" type="string">
+<column name="department" not-null="true" >
+</column>
+</property>
+
+<set name="task" table="employee_task" cascade="all">
+<key>
+<column name="e_id" not-null="true"/>
+</key>
+<many-to-many class="com.manytomanyxml.pojo.TaskPojo">
+<column name="t_id" not-null="true"/>
+</many-to-many>
+</set>
+
+
+</class>
+
+</hibernate-mapping>
